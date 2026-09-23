@@ -1,0 +1,12 @@
+frontend/
+ml/
+results/
+dataset/
+venv*/
+.hf_cache/
+node_modules/
+.git/
+*.md
+__pycache__/
+*.pyc
+.env*

@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+# Virtual environments
+venv*/
+.venv*/
+env*/
+
+# Model & large files — allow trained model for deployment (16.7MB is under GitHub's 100MB limit)
+!models/traffic_sign_cnn.keras
+
+# HuggingFace & Kaggle cache
+.hf_cache/
+.kaggle/
+
+# Dataset
+dataset/
+
+# Results (generated after training)
+results/*.png
+results/*.json
+results/*.txt
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Kaggle
+.kaggle/
+
+# TensorFlow
+*.tfevents.*
+logs/

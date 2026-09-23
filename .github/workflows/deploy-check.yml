@@ -1,0 +1,23 @@
+name: Docker Build Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t traffic-sign-api .
+
+      - name: Verify image starts
+        run: |
+          docker run -d --name test-api -p 7860:7860 traffic-sign-api
+          sleep 10
+          curl -f http://localhost:7860/health || exit 1
+          docker stop test-api
