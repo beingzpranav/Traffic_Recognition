@@ -12,12 +12,13 @@ WORKDIR /app
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend code and trained model
+# Copy backend code, model, and Gradio entry point
 COPY backend/ ./backend/
 COPY models/ ./models/
+COPY app.py .
 
 # HuggingFace Spaces requires port 7860
 EXPOSE 7860
 
-# Run FastAPI with Uvicorn
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]
+# Run via the Gradio wrapper (starts uvicorn on port 7860)
+CMD ["python", "app.py"]
